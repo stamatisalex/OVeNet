@@ -1,12 +1,8 @@
-# Semantic Segmentation with Deep Convolutional Networks
+# OVeNet: Offset Vector Network for Semantic Segmentation
 
-Author: Stamatis Alexandropoulos
+Stamatis Alexandropoulos,[Christos Sakaridis (ETH)](https://people.ee.ethz.ch/~csakarid/), [Petros Maragos (NTUA)](https://robotics.ntua.gr/members/maragos/)
 
-Supervisor: [Prof. Petros Maragos (NTUA)](https://robotics.ntua.gr/members/maragos/)
-
-Co-supervisor [Dr. Christos Sakaridis (ETH)](https://people.ee.ethz.ch/~csakarid/)
-
-Based on knowledge about the high regularity of real scenes, we propose a method for improving class predictions by learning to selectively exploit information from coplanar pixels. In particular, we introduce a prior which claims that for each pixel, there is a seed pixel which shares the same prediction with the former. As a result of this, we design a network with two heads. The first head generates pixel-level classes, whereas the second generates a dense offset vector field that identifies seed pixel positions. Seed pixels’ class predictions are then utilized to predict classes at each point. To account for possible deviations from precise local planarity, the resultant prediction is adaptively fused with the initial prediction from the first head using a learnt confidence map. The entire architecture is implemented on HRNetV2, a state-of-the-art model on Cityscapes dataset. The offset vector-based HRNetV2 was trained on both Cityscapes and ACDC datasets. We assess our method through extensive qualitative and quantitative experiments and ablation studies and compare it with recent state-of-the-art methods demonstrating its superiority and advantages. To sum up, we achieve better results than the initial model.
+Semantic segmentation is a fundamental task in visual scene understanding. We focus on the supervised setting, where ground-truth semantic annotations are available. Based on knowledge about the high regularity of real-world scenes, we propose a method for improving class predictions by learning to selectively exploit information from neighboring pixels. In particular, our method is based on the prior that for each pixel, there is a seed pixel in its close neighborhood sharing the same prediction with the former. Motivated by this prior, we design a novel two-head network, named Offset Vector Network (OVeNet), which generates both standard semantic predictions and a dense 2D offset vector field indicating the offset from each pixel to the respective seed pixel, which is used to compute an alternative, seed-based semantic prediction. The two predictions are adaptively fused at each pixel using a learnt dense confidence map for the predicted offset vector field. We supervise offset vectors indirectly via optimizing the seed-based prediction and via a novel loss on the confidence map. Compared to the baseline state-of-the-art architectures HRNet and HRNet+OCR on which OVeNet is built, the latter achieves significant performance gains on two prominent benchmarks for semantic segmentation, namely Cityscapes, ACDC and ADE20K.
 
 [arXiv](https://arxiv.org/abs/2303.14516) [(pdf)](https://arxiv.org/pdf/2303.14516.pdf)
 
@@ -111,7 +107,7 @@ python tools/test.py --cfg experiments/cityscapes/seg_hrnet_w48_train_ohem_512x1
 
 ## Citation
 
-If you find our work useful in your research please use [this](http://artemis.cslab.ece.ntua.gr:8080/jspui/handle/123456789/18457) identifier to cite or link to this item.
+If you find our work useful in your research please use [this](https://arxiv.org/abs/2303.14516) identifier to cite or link to this item.
 
 
 ## Contributions
