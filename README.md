@@ -6,7 +6,7 @@ Semantic segmentation is a fundamental task in visual scene understanding. We fo
 
 [arXiv](https://arxiv.org/abs/2303.14516) [(pdf)](https://arxiv.org/pdf/2303.14516.pdf)
 
-This is the reference PyTorch implementation for training and evaluation of HRNet using the method described in this paper.
+This is the reference PyTorch implementation for training and evaluation of HRNet without OCR using the method described in this paper.
 
 <p align="center">
   <img src="images/git.png" alt="example input output" width="1000" />
