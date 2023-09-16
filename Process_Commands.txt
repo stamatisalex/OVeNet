@@ -1,0 +1,13 @@
+1)conda create -n ocr
+2)conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=9.0 -c pytorch
+3)while read requirement; do conda install --yes $requirement; done < requirements.txt 2>error.log
+4)conda install -c conda-forge json_tricks
+5) conda install -c conda-forge EasyDict /// NOT 1.7 BUT 1.9
+6) conda install -c menpo opencv
+7) In order to solve the problem with the NoneType shape --> uncomment the 'cityscates' command in the cityscapes.py
+8)conda install -c conda-forge matplotlib
+9) conda install -c conda-forge wandb
+
+
+
+
