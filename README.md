@@ -69,6 +69,13 @@ $ROOT/data
 │   │   ├── night
 │   │   └── rain
 │   │   └── snow
+├── ade20k
+│   ├── train
+│   │   ├── image
+│   │   └── label
+│   └── val
+│       ├── image
+│       └── label
 ├── list
 │   ├── cityscapes
 │   │   ├── test.lst
