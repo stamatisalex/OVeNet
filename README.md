@@ -1,6 +1,6 @@
 # OVeNet: Offset Vector Network for Semantic Segmentation
 
-Stamatis Alexandropoulos,[Christos Sakaridis (ETH)](https://people.ee.ethz.ch/~csakarid/), [Petros Maragos (NTUA)](https://robotics.ntua.gr/members/maragos/)
+Stamatis Alexandropoulos, [Christos Sakaridis (ETH)](https://people.ee.ethz.ch/~csakarid/), [Petros Maragos (NTUA)](https://robotics.ntua.gr/members/maragos/)
 
 Semantic segmentation is a fundamental task in visual scene understanding. We focus on the supervised setting, where ground-truth semantic annotations are available. Based on knowledge about the high regularity of real-world scenes, we propose a method for improving class predictions by learning to selectively exploit information from neighboring pixels. In particular, our method is based on the prior that for each pixel, there is a seed pixel in its close neighborhood sharing the same prediction with the former. Motivated by this prior, we design a novel two-head network, named Offset Vector Network (OVeNet), which generates both standard semantic predictions and a dense 2D offset vector field indicating the offset from each pixel to the respective seed pixel, which is used to compute an alternative, seed-based semantic prediction. The two predictions are adaptively fused at each pixel using a learnt dense confidence map for the predicted offset vector field. We supervise offset vectors indirectly via optimizing the seed-based prediction and via a novel loss on the confidence map. Compared to the baseline state-of-the-art architectures HRNet and HRNet+OCR on which OVeNet is built, the latter achieves significant performance gains on two prominent benchmarks for semantic segmentation, namely Cityscapes, ACDC and ADE20K.
 
@@ -16,12 +16,12 @@ This is the reference PyTorch implementation for training and evaluation of HRNe
 
 This software is released under a creative commons [license](LICENSE.txt) which allows for personal and research use only. For a commercial license please contact the authors. You can view a license summary [here](http://creativecommons.org/licenses/by-nc/4.0/).
 
-## Offset vector-based HRNetV2
+## OVeNet
 <p align="center">
-  <img src="images/final_hrnet_model_end.png" alt="example input output" width="1000" />
+  <img src="images/main_pipeline.pdf" alt="example input output" width="1000" />
 </p>
 
-Offset vector-based HRNetV2 consists of two output heads. The first head outputs pixel-level Logits (C), while the second head outputs a dense offset vector field (o) identifying positions of seed pixels along with a confidence map (F). Then, the coefficients of seed pixels are used to predict classes at each position. The resulting prediction (S<sub>s</sub>) is adaptively fused with the initial prediction (S<sub>i</sub>) using the confidence map F to compute the final prediction S<sub>f</sub>
+OVeNet consists of two output heads. The first head outputs pixel-level Logits (C), while the second head outputs a dense offset vector field (o) identifying positions of seed pixels along with a confidence map (F). Then, the coefficients of seed pixels are used to predict classes at each position. The resulting prediction (S<sub>s</sub>) is adaptively fused with the initial prediction (S<sub>i</sub>) using the confidence map F to compute the final prediction S<sub>f</sub>
 
 
 ## Contents
@@ -44,7 +44,7 @@ For setup, you need:
 
 
 ## Data preparation
-You need to download the [Cityscapes](https://www.cityscapes-dataset.com/), [ACDC](https://acdc.vision.ee.ethz.ch/)  datasets.
+You need to download the [Cityscapes](https://www.cityscapes-dataset.com/), [ACDC](https://acdc.vision.ee.ethz.ch/) and [ADE20K](http://sceneparsing.csail.mit.edu/)  datasets.
 
 Your directory tree should be look like this:
 ````bash
