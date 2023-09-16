@@ -18,7 +18,7 @@ This software is released under a creative commons [license](LICENSE.txt) which 
 
 ## OVeNet
 <p align="center">
-  <img src="images/main_pipeline.pdf" alt="example input output" width="1000" />
+  <img src="images/main_pipeline.png" alt="example input output" width="1000" />
 </p>
 
 OVeNet consists of two output heads. The first head outputs pixel-level Logits (C), while the second head outputs a dense offset vector field (o) identifying positions of seed pixels along with a confidence map (F). Then, the coefficients of seed pixels are used to predict classes at each position. The resulting prediction (S<sub>s</sub>) is adaptively fused with the initial prediction (S<sub>i</sub>) using the confidence map F to compute the final prediction S<sub>f</sub>
